@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+/* General Settings */
+html,body {
+    position: relative; /* Allows the footer to notice content height */
+    min-height: 100vh;
+    margin: 0;
+    /*font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;*/
+    font-family: 'Rubik', sans-serif;;
+    color: #4f4f4f;
+}
+
+a { text-decoration: none;}
+
+.alert {
+    padding: 0.3rem 0.3rem;
+}
+
+/* high chart */
+.highcharts-credits {
+    display: none !important;
+    border:1px solid rgba(0,0,0,0.08);
+    box-shadow: #cbd2d6 0 1px 4px 0;
+}
+figure,.user-count {
+    margin: 0 0 20px 0;
+}
+progress,
+progress::-webkit-progress-bar,
+progress::-webkit-progress-value,
+progress::-moz-progress-bar {
+    border: 0 !important;
+    border-radius: 9px !important;
+}
+p {
+    font-size: 0.98rem !important;
+}
+
+/*  Form Style  */
+.form-delete {
+    display: inline;
+}
+
+.gj-textbox-md {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #212529;
+    background-color: #f8fafc;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.gj-datepicker-md [role="right-icon"] {
+    right: 5px;
+    top: 8px;
+}
+
+
+/*  Select Package Style  */
+.select2-container {
+    box-sizing: border-box;
+    display: block;
+    margin: 0;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+    border-radius: 0;
+}
+.select2-container--default .select2-selection--single{
+    padding: 0;
+    height: 38px;
+    font-size: 0.9rem;
+    width: 100%;
+    display: block;
+    font-weight: 400;
+    color: #212529;
+    background-color: #f8fafc;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0;
+    color: white;
+}
+.select2-container .select2-selection--single .select2-selection__rendered {
+    display: block;
+    padding-left: 8px;
+    padding-right: 20px;
+    padding-top: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.select2-container .select2-selection--multiple {
+    min-height: 200px !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #044687;
+    border: 1px solid #044687;
+    border-radius: 6px;
+    cursor: default;
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 5px 10px;
+    color: #fff;
+    font-size:1.0rem;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 5px;
+    font-size:1.0rem;
+}
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border: 1px solid #044687;
+    outline: 0;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected],
+.select2-container--default .select2-results__option--highlighted {
+    background-color: #044687;
+    color: white;
+}
+
+
+/*  Card Style  */
+.card{
+    width: 100%;
+    min-width: 100%;
+    border-radius:0;
+    padding: 0;
+    border:1px solid rgba(0,0,0,0.08);
+    box-shadow: #cbd2d6 0 1px 4px 0;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+
+}
+.card-title {
+    color: #FFF;
+    border-color: #FFF;
+    font-weight: bold;
+    font-size: 16px;
+    text-shadow: none;
+}
+.card-header  {
+    border-bottom: 0;
+}
+.card-header:first-child {
+    border-radius:0;
+}
+
+/*  Button Style    */
+.btn-navy {background: #001e43;border-color:#001e43; color: white;}
+.btn-outline-navy {color: #001e43;border-color:#001e43;}
+.btn-outline-navy {color: #001e43;border-color:#001e43;}
+.btn-outline-navy:hover { background:#001e43;border-color:#fff;}
+
+.btn-primary {background: #0866c6;border-color:#0866c6; color: white;}
+.btn-outline-primary {color: #0866c6;border-color:#0866c6;}
+.btn-outline-primary {color: #0866c6;border-color:#0866c6;}
+.btn-outline-primary:hover { background:#0866c6;border-color:#0866c6;}
+
+.btn-danger {border-color:#dc3545; background:#dc3545; color: white; }
+.btn-outline-danger {color: #dc3545; border-color:#dc3545; }
+.btn-outline-danger:hover { background:#dc3545; }
+
+.btn-dark {border-color:black; background:black;color: white; }
+.btn-outline-dark  {color: black; border-color:black; }
+.btn-outline-dark:hover { background:black; }
+
+.btn-success {border-color:#23BF08; background:#23BF08;color: white; }
+.btn-outline-success {color: #23BF08; border-color:#23BF08; }
+.btn-outline-success:hover { background:#23BF08; }
+
+.btn-metallic-yellow  {border-color:#FDD116; background:#FDD116;color: #000; }
+.btn-outline-metallic-yellow  {color: #FDD116; border-color:#FDD116; }
+.btn-outline-metallic-yellow :hover { background:#FDD116; }
+
+.btn-vivid-cerulean {border-color:#00A3DE; background:#00A3DE;color: #fff; }
+.btn-outline-vivid-cerulean {color: #000; border-color:#00A3DE; }
+.btn-outline-vivid-cerulean:hover { background:#00A3DE;color: #fff; }
+
+/*  Background Styles   */
+.bg-primary{background:#0866c6 !important; color: white;}
+.bg-olive{border-color:#808000; background:#808000;}
+.bg-blue { background: #044687;color:white; }
+.bg-red {border-color:red; background:red; }
+.bg-green {border-color:#23BF08; background:#23BF08; }
+.bg-orange {border-color:orange; background:orange;}
+.bg-purple {border-color:purple; background:purple; }
+.bg-black {border-color:black; background: black; }
+.bg-dark {border-color:#343a40;; background: #343a40;; }
+.bg-pink {border-color:deeppink; background:deeppink; }
+.bg-maroon {border-color:maroon; background:maroon; }
+.bg-gray {border-color:gray; background:gray; }
+.bg-chocolate {border-color:chocolate; background:chocolate;}
+.bg-yellow{border-color:yellow; background:yellow; }
+.bg-gray-blue{border-color:#e9ecef; background:#e9ecef; }
+.bg-slateblue{border-color:#6A5ACD; background:#6A5ACD; }
+.bg-olive{border-color:#808000; background:#808000; }
+.bg-steelblue{border-color:#4682B4; background:#4682B4; }
+.bg-dark-gray { border-color: #1f2937; background: #1f2937; }
+.bg-american-green {border-color: #1FB53A; background: #1FB53A;}
+.bg-metallic-yellow {border-color: #FDD116; background: #FDD116;}
+.bg-vivid-cerulean {border-color: #00A3DE; background:#00A3DE;}
+
+/*  Text Styles    */
+.text-primary{color:#04519b;}
+.text-success{color:#23BF08;}
+.text-olive{color:#808000;}
+.text-blue { color: #044687; }
+.text-red {color:red; }
+.text-green {color:#23BF08; }
+.text-orange {color:orange;}
+.text-purple {color:purple; }
+.text-black {color: black; }
+.text-dark {color: #343a40;; }
+.text-pink {color:deeppink; }
+.text-maroon {color:maroon; }
+.text-gray {color:gray; }
+.text-chocolate {color:chocolate;}
+.text-yellow{color:yellow; }
+.text-gray-blue{color:#e9ecef; }
+.text-slateblue{color:#6A5ACD; }
+.text-olive{color:#808000; }
+.text-steelblue{color:#4682B4; }
+.text-dark-gray {color: #1f2937; }
+.text-american-green {color: #1FB53A;}
+.text-metallic-yellow {color: #FDD116;}
+.text-vivid-cerulean {color:#00A3DE;}

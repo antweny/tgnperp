@@ -1,0 +1,11 @@
+html,body {
+    background: #f8f9fd;
+}
+
+.auth-section {
+    padding: 10em 0;
+}
+
+.login-wrapper {
+    padding: 2em;
+}

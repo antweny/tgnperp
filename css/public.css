@@ -1,0 +1,81 @@
+body {
+    background-image: url('../images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+/* Top Navigation */
+.navbar-expand-lg .navbar-nav .nav-link {
+    font-size:1.1rem !important;
+    padding-left:1.2rem;
+    color: #fff;
+    padding-right:1.2rem;
+}
+
+/* Main Container */
+.mainContainer {
+    margin-top: 100px;
+}
+
+/*.navbar-brand {*/
+/*    font-size: 18px;*/
+/*}*/
+
+/*!* *!*/
+/*main{*/
+/*    padding-top: 120px;*/
+/*    min-height: 100vh;*/
+/*}*/
+
+/* font public */
+footer {
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+}
+
+/* Front page */
+.card-report,.leader-search {
+    border: 0;
+    box-shadow: none;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    background: transparent;
+    padding: 0;
+}
+.card-report .card-body {
+    padding: 0;
+}
+.card-report .card-header,.leader-search .card-header  {
+    background: transparent !important;
+}
+.card-report .card-title{
+    color: #ffffff !important;
+    font-size: 1.0rem;
+}
+.card-report .card-title span{
+    background: #ee9a23;
+    padding: 0.5rem;
+    border-radius: 15px;
+}
+
+/*!* Leader Search Section *!*/
+/*.leader-search .form-control {*/
+/*    height: 40px;*/
+/*    background: #ffffff !important;*/
+/*}*/
+/*.leader-search .form-control:focus {*/
+/*    box-shadow: none;*/
+/*    color: rgba(0,0,0,0.6);*/
+/*}*/
+/*.leader-search .card-title {*/
+/*    color: rgba(0,0,0,0.6) !important;*/
+/*    font-size: 1.5rem;*/
+/*}*/
+
+
+
+
+
+
+
+
