@@ -9,24 +9,9 @@
         <x-input name="acronym" :value="$organization->acronym"/>
         <x-error field="acronym" />
     </div>
-    <div class="col-md-3">
-        <x-label for="Tier" />
-        <select id="tier" name="tier" class="form-control single-select">
-            <option value="">--Select--</option>
-            <option value="Central" {{old('tier',$organization->tier) == 'Central' ? 'selected' : ''}}>Central Government</option>
-            <option value="Local" {{old('tier',$organization->tier) == 'Local' ? 'selected' : ''}}>Local Government</option>
-            <option value="Other" {{old('tier',$organization->tier) == 'Other' ? 'selected' : ''}}>Other</option>
-        </select>
-        <x-error field="tier" />
-    </div>
 </div>
 
 <div class="row mb-3">
-    <div class="col-md-4">
-        <x-label for="branch" star="true" />
-        <x-branch required :value="$organization->branch_id" />
-        <x-error field="branch_id" />
-    </div>
     <div class="col-md-4">
         <x-label for="type" star="true" />
         <x-type required :value="$organization->type_id"/>

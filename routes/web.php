@@ -6,12 +6,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\IndexController::class,'index'])->name('default');
 Route::get('dashboard', [App\Http\Controllers\DashboardController::class,'index'])->name('dashboard');
 
-//  user role permissions
-Route::prefix('leadership/')->name('leadership.')->group(function () {
-    Route::get('index', [App\Http\Controllers\LeadershipController::class,'index'])->name('index');
-    Route::get('search', [App\Http\Controllers\LeadershipController::class,'search'])->name('search');
-});
-
 //  Authentication routes
 Auth::routes(['register' => false]);
 
@@ -58,42 +52,9 @@ Route::prefix('locations/')->name('locations.')->group(function () {
 });
 
 
-//  Government Phases and Terms
-Route::prefix('government/')->group(function () {
-
-    //  Government phases
-    Route::prefix('phases/')->name('phases.')->group(function () {
-        Route::get('index', [App\Http\Controllers\Government\PhaseController::class,'index'])->name('index');
-        Route::get('create', [App\Http\Controllers\Government\PhaseController::class,'create'])->name('create');
-        Route::post('store', [App\Http\Controllers\Government\PhaseController::class,'store'])->name('store');
-        Route::get('edit/{phase}', [App\Http\Controllers\Government\PhaseController::class,'edit'])->name('edit');
-        Route::put('update/{phase}', [App\Http\Controllers\Government\PhaseController::class,'update'])->name('update');
-        Route::delete('destroy/{phase}', [App\Http\Controllers\Government\PhaseController::class,'destroy'])->name('destroy');
-    });
-
-    //  Government phase terms
-    Route::prefix('terms/')->name('terms.')->group(function () {
-        Route::get('index', [App\Http\Controllers\Government\TermController::class,'index'])->name('index');
-        Route::get('create', [App\Http\Controllers\Government\TermController::class,'create'])->name('create');
-        Route::post('store', [App\Http\Controllers\Government\TermController::class,'store'])->name('store');
-        Route::get('edit/{term}', [App\Http\Controllers\Government\TermController::class,'edit'])->name('edit');
-        Route::put('update/{term}', [App\Http\Controllers\Government\TermController::class,'update'])->name('update');
-        Route::delete('destroy/{term}', [App\Http\Controllers\Government\TermController::class,'destroy'])->name('destroy');
-    });
-});
 
 //  Government Structures
-Route::prefix('government/structure')->group(function () {
-
-    //  Branches
-    Route::prefix('branches/')->name('branches.')->group(function () {
-        Route::get('index', [App\Http\Controllers\Structure\BranchController::class,'index'])->name('index');
-        Route::get('create', [App\Http\Controllers\Structure\BranchController::class,'create'])->name('create');
-        Route::post('store', [App\Http\Controllers\Structure\BranchController::class,'store'])->name('store');
-        Route::get('edit/{branch}', [App\Http\Controllers\Structure\BranchController::class,'edit'])->name('edit');
-        Route::put('update/{branch}', [App\Http\Controllers\Structure\BranchController::class,'update'])->name('update');
-        Route::delete('destroy/{branch}', [App\Http\Controllers\Structure\BranchController::class,'destroy'])->name('destroy');
-    });
+Route::prefix('structure/')->group(function () {
 
     //  Types
     Route::prefix('types/')->name('types.')->group(function () {
@@ -139,53 +100,6 @@ Route::prefix('contacts')->group(function () {
         Route::get('activate/{string}/{individual}', [App\Http\Controllers\Contact\IndividualController::class,'activate'])->name('activate');
         Route::put('update/{individual}', [App\Http\Controllers\Contact\IndividualController::class,'update'])->name('update');
         Route::delete('destroy/{individual}', [App\Http\Controllers\Contact\IndividualController::class,'destroy'])->name('destroy');
-    });
-
-});
-
-//  Organization and Individuals Contacts
-Route::prefix('leadership')->group(function () {
-
-    //  Titles
-    Route::prefix('titles/')->name('titles.')->group(function () {
-        Route::get('index', [App\Http\Controllers\Leadership\TitleController::class,'index'])->name('index');
-        Route::get('create', [App\Http\Controllers\Leadership\TitleController::class,'create'])->name('create');
-        Route::post('store', [App\Http\Controllers\Leadership\TitleController::class,'store'])->name('store');
-        Route::get('edit/{title}', [App\Http\Controllers\Leadership\TitleController::class,'edit'])->name('edit');
-        Route::put('update/{title}', [App\Http\Controllers\Leadership\TitleController::class,'update'])->name('update');
-        Route::delete('destroy/{title}', [App\Http\Controllers\Leadership\TitleController::class,'destroy'])->name('destroy');
-    });
-
-//    //  Positions
-    Route::prefix('positions/')->group(function () {
-
-        Route::prefix('modes/')->name('positionModes.')->group(function () {
-            Route::get('index', [App\Http\Controllers\Leadership\PositionModeController::class,'index'])->name('index');
-            Route::get('create', [App\Http\Controllers\Leadership\PositionModeController::class,'create'])->name('create');
-            Route::post('store', [App\Http\Controllers\Leadership\PositionModeController::class,'store'])->name('store');
-            Route::get('edit/{positionMode}', [App\Http\Controllers\Leadership\PositionModeController::class,'edit'])->name('edit');
-            Route::put('update/{positionMode}', [App\Http\Controllers\Leadership\PositionModeController::class,'update'])->name('update');
-            Route::delete('destroy/{positionMode}', [App\Http\Controllers\Leadership\PositionModeController::class,'destroy'])->name('destroy');
-        });
-
-        Route::prefix('exit/modes/')->name('exitModes.')->group(function () {
-            Route::get('index', [App\Http\Controllers\Leadership\ExitModeController::class,'index'])->name('index');
-            Route::get('create', [App\Http\Controllers\Leadership\ExitModeController::class,'create'])->name('create');
-            Route::post('store', [App\Http\Controllers\Leadership\ExitModeController::class,'store'])->name('store');
-            Route::get('edit/{exitMode}', [App\Http\Controllers\Leadership\ExitModeController::class,'edit'])->name('edit');
-            Route::put('update/{exitMode}', [App\Http\Controllers\Leadership\ExitModeController::class,'update'])->name('update');
-            Route::delete('destroy/{exitMode}', [App\Http\Controllers\Leadership\ExitModeController::class,'destroy'])->name('destroy');
-        });
-
-        Route::name('positions.')->group(function () {
-            Route::get('index', [App\Http\Controllers\Leadership\PositionController::class, 'index'])->name('index');
-            Route::get('create', [App\Http\Controllers\Leadership\PositionController::class, 'create'])->name('create');
-            Route::post('store', [App\Http\Controllers\Leadership\PositionController::class, 'store'])->name('store');
-            Route::get('edit/{position}', [App\Http\Controllers\Leadership\PositionController::class, 'edit'])->name('edit');
-            Route::get('activate/{string}/{position}', [App\Http\Controllers\Leadership\PositionController::class, 'activate'])->name('activate');
-            Route::put('update/{position}', [App\Http\Controllers\Leadership\PositionController::class, 'update'])->name('update');
-            Route::delete('destroy/{position}', [App\Http\Controllers\Leadership\PositionController::class, 'destroy'])->name('destroy');
-        });
     });
 
 });

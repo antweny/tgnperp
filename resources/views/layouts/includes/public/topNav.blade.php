@@ -17,9 +17,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#!">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('leadership.index')}}">Leadership</a>
-                    </li>
                 </ul>
             </div>
 

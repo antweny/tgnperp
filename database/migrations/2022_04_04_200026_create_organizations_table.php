@@ -15,12 +15,9 @@ class CreateOrganizationsTable extends Migration
     {
         Schema::create('organizations', function (Blueprint $table) {
             $table->id();
+
             $table->string('name')->unique();
             $table->string('acronym')->nullable();
-            $table->enum('tier', ['Central','Local','Other']);
-
-            $table->unsignedBigInteger('branch_id');
-            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('restrict')->onUpdate('cascade');
 
             $table->unsignedBigInteger('type_id')->nullable();
             $table->foreign('type_id')->references('id')->on('types')->onDelete('set null')->onUpdate('cascade');
