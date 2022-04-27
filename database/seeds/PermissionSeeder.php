@@ -27,6 +27,8 @@ class PermissionSeeder extends Seeder
                 'individual_create','individual_view','individual_update','individual_delete',
                 'organization_create','organization_view','organization_update','organization_delete',
                 'location_create','location_view','location_update','location_delete',
+                'department_create','department_view','department_update','department_delete',
+                'designation_create','designation_view','designation_update','designation_delete',
             ];
     }
 

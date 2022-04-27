@@ -11,17 +11,20 @@
         </li>
 
         <!-- Contacts -->
-        @canany(['individual_view','organization_view'])
+        @canany(['department_view','designation_view'])
             <li>
                 <a href="#hra" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="nav-link-icon"><i class="fa-solid fa-people-roof"></i></div> HRA
                 </a>
                 <ul class="collapse list-unstyled submenu" id="hra">
                     @permissionTo('department_view')
-                    <li><a href="{{route('organizations.index')}}">Department</a></li>
+                    <li><a href="{{route('departments.index')}}">Department</a></li>
                     @endpermissionTo
                     @permissionTo('designation_view')
-                    <li><a href="{{route('individuals.index')}}">Designations</a></li>
+                    <li><a href="{{route('designations.index')}}">Designations</a></li>
+                    @endpermissionTo
+                    @permissionTo('employment-contract_view')
+                    <li><a href="{{route('employmentContracts.index')}}">Employment Contracts</a></li>
                     @endpermissionTo
                     @permissionTo('employee_view')
                     <li><a href="{{route('individuals.index')}}">Employees</a></li>

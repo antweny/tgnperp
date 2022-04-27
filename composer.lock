@@ -6007,16 +6007,16 @@
         },
         {
             "name": "twenycode/tweny-ui-kit",
-            "version": "v1.3.5",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twenycode/tweny-ui-kit.git",
-                "reference": "72e3dd36b485ad7d14f1c8950a1e3ff09ec6f0bd"
+                "reference": "4c6f825ccbeb54f5d4f1b057e047aae38b8e1704"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twenycode/tweny-ui-kit/zipball/72e3dd36b485ad7d14f1c8950a1e3ff09ec6f0bd",
-                "reference": "72e3dd36b485ad7d14f1c8950a1e3ff09ec6f0bd",
+                "url": "https://api.github.com/repos/twenycode/tweny-ui-kit/zipball/4c6f825ccbeb54f5d4f1b057e047aae38b8e1704",
+                "reference": "4c6f825ccbeb54f5d4f1b057e047aae38b8e1704",
                 "shasum": ""
             },
             "require": {
@@ -6048,9 +6048,9 @@
             ],
             "support": {
                 "issues": "https://github.com/twenycode/tweny-ui-kit/issues",
-                "source": "https://github.com/twenycode/tweny-ui-kit/tree/v1.3.5"
+                "source": "https://github.com/twenycode/tweny-ui-kit/tree/v1.4.1"
             },
-            "time": "2022-04-25T08:51:10+00:00"
+            "time": "2022-04-27T12:33:01+00:00"
         },
         {
             "name": "vinkla/hashids",

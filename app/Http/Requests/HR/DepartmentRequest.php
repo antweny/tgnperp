@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Government;
+namespace App\Http\Requests\HR;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TermRequest extends FormRequest
+class DepartmentRequest extends FormRequest
 {
     //  Determine if the user is authorized to make this request.
     public function authorize()
@@ -19,14 +19,14 @@ class TermRequest extends FormRequest
         {
             case 'POST': {
                 return [
-                    'name' => ['required','string','max:20','unique:terms'],
+                    'name' => ['required','string','max:50','unique:departments'],
                     'descriptions' => ['string','nullable'],
                 ];
             }
             case 'PUT':
             case 'PATCH': {
                 return [
-                    'name' => ['required','string','max:20','unique:terms,id,'.$this->id],
+                    'name' => ['required','string','max:50','unique:departments,id,'.$this->id],
                     'descriptions' => ['string','nullable'],
                 ];
             }

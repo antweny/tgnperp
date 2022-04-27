@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Requests\Leadership;
+namespace App\Http\Requests\HR;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ExitModeRequest extends FormRequest
+class DesignationRequest extends FormRequest
 {
     //  Determine if the user is authorized to make this request.
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
@@ -19,14 +19,14 @@ class ExitModeRequest extends FormRequest
         {
             case 'POST': {
                 return [
-                    'name' => ['required','string','max:20','unique:exit_modes'],
+                    'name' => ['required','string','max:50','unique:designations'],
                     'descriptions' => ['string','nullable'],
                 ];
             }
             case 'PUT':
             case 'PATCH': {
                 return [
-                    'name' => ['required','string','max:20','unique:exit_modes,id,'.$this->id],
+                    'name' => ['required','string','max:50','unique:designations,id,'.$this->id],
                     'descriptions' => ['string','nullable'],
                 ];
             }

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Leadership;
+namespace App\Http\Requests\HR;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TitleRequest extends FormRequest
+class EmploymentContractRequest extends FormRequest
 {
     //  Determine if the user is authorized to make this request.
     public function authorize()
@@ -19,16 +19,14 @@ class TitleRequest extends FormRequest
         {
             case 'POST': {
                 return [
-                    'name' => ['required','string','max:50','unique:titles'],
-                    'acronym' => ['nullable','string','max:15'],
+                    'name' => ['required','string','max:50','unique:employment_contracts'],
                     'descriptions' => ['string','nullable'],
                 ];
             }
             case 'PUT':
             case 'PATCH': {
                 return [
-                    'name' => ['required','string','max:50','unique:titles,id,'.$this->id],
-                    'acronym' => ['nullable','string','max:15'],
+                    'name' => ['required','string','max:50','unique:employment_contracts,id,'.$this->id],
                     'descriptions' => ['string','nullable'],
                 ];
             }

@@ -9,37 +9,89 @@ Route::get('dashboard', [App\Http\Controllers\DashboardController::class,'index'
 //  Authentication routes
 Auth::routes(['register' => false]);
 
-//  user role permissions
-Route::prefix('users/')->name('users.')->group(function () {
-    Route::get('index', [App\Http\Controllers\Auth\UserController::class,'index'])->name('index');
-    Route::get('create', [App\Http\Controllers\Auth\UserController::class,'create'])->name('create');
-    Route::post('store', [App\Http\Controllers\Auth\UserController::class,'store'])->name('store');
-    Route::get('edit/{user}', [App\Http\Controllers\Auth\UserController::class,'edit'])->name('edit');
-    Route::get('activate/{string}/{user}', [App\Http\Controllers\Auth\UserController::class,'activate'])->name('activate');
-    Route::put('update/{user}', [App\Http\Controllers\Auth\UserController::class,'update'])->name('update');
-    Route::delete('destroy/{user}', [App\Http\Controllers\Auth\UserController::class,'destroy'])->name('destroy');
+
+//  Human Resource & Administration
+Route::prefix('hr/')->group(function () {
+
+    //  Departments
+    Route::prefix('departments/')->name('departments.')->group(function () {
+        Route::get('index', [App\Http\Controllers\HR\DepartmentController::class,'index'])->name('index');
+        Route::get('create', [App\Http\Controllers\HR\DepartmentController::class,'create'])->name('create');
+        Route::post('store', [App\Http\Controllers\HR\DepartmentController::class,'store'])->name('store');
+        Route::get('edit/{department}', [App\Http\Controllers\HR\DepartmentController::class,'edit'])->name('edit');
+        Route::put('update/{department}', [App\Http\Controllers\HR\DepartmentController::class,'update'])->name('update');
+        Route::delete('destroy/{department}', [App\Http\Controllers\HR\DepartmentController::class,'destroy'])->name('destroy');
+    });
+
+    //  Designations
+    Route::prefix('designations/')->name('designations.')->group(function () {
+        Route::get('index', [App\Http\Controllers\HR\DesignationController::class,'index'])->name('index');
+        Route::get('create', [App\Http\Controllers\HR\DesignationController::class,'create'])->name('create');
+        Route::post('store', [App\Http\Controllers\HR\DesignationController::class,'store'])->name('store');
+        Route::get('edit/{designation}', [App\Http\Controllers\HR\DesignationController::class,'edit'])->name('edit');
+        Route::put('update/{designation}', [App\Http\Controllers\HR\DesignationController::class,'update'])->name('update');
+        Route::delete('destroy/{designation}', [App\Http\Controllers\HR\DesignationController::class,'destroy'])->name('destroy');
+    });
+
+    //  Employment Routes
+    Route::prefix('employments/')->group(function () {
+
+
+        //  Employment Contracts
+        Route::prefix('contracts/')->name('employmentContracts.')->group(function () {
+            Route::get('index', [App\Http\Controllers\HR\EmploymentContractController::class,'index'])->name('index');
+            Route::get('create', [App\Http\Controllers\HR\EmploymentContractController::class,'create'])->name('create');
+            Route::post('store', [App\Http\Controllers\HR\EmploymentContractController::class,'store'])->name('store');
+            Route::get('edit/{employmentContract}', [App\Http\Controllers\HR\EmploymentContractController::class,'edit'])->name('edit');
+            Route::put('update/{employmentContract}', [App\Http\Controllers\HR\EmploymentContractController::class,'update'])->name('update');
+            Route::delete('destroy/{employmentContract}', [App\Http\Controllers\HR\EmploymentContractController::class,'destroy'])->name('destroy');
+        });
+
+
+
+
+    });
+
 });
 
 
-// user roles
-Route::prefix('roles/')->name('roles.')->group(function () {
-    Route::get('index', [App\Http\Controllers\Auth\RoleController::class,'index'])->name('index');
-    Route::get('create', [App\Http\Controllers\Auth\RoleController::class,'create'])->name('create');
-    Route::post('store', [App\Http\Controllers\Auth\RoleController::class,'store'])->name('store');
-    Route::get('edit/{role}', [App\Http\Controllers\Auth\RoleController::class,'edit'])->name('edit');
-    Route::put('update/{role}', [App\Http\Controllers\Auth\RoleController::class,'update'])->name('update');
-    Route::delete('destroy/{role}', [App\Http\Controllers\Auth\RoleController::class,'destroy'])->name('destroy');
+
+
+//  user role & permissions
+Route::prefix('users/')->group(function () {
+
+    //  Users
+    Route::name('users.')->group(function () {
+        Route::get('index', [App\Http\Controllers\Auth\UserController::class, 'index'])->name('index');
+        Route::get('create', [App\Http\Controllers\Auth\UserController::class, 'create'])->name('create');
+        Route::post('store', [App\Http\Controllers\Auth\UserController::class, 'store'])->name('store');
+        Route::get('edit/{user}', [App\Http\Controllers\Auth\UserController::class, 'edit'])->name('edit');
+        Route::get('activate/{string}/{user}', [App\Http\Controllers\Auth\UserController::class, 'activate'])->name('activate');
+        Route::put('update/{user}', [App\Http\Controllers\Auth\UserController::class, 'update'])->name('update');
+        Route::delete('destroy/{user}', [App\Http\Controllers\Auth\UserController::class, 'destroy'])->name('destroy');
+    });
+
+    // user roles
+    Route::prefix('roles/')->name('roles.')->group(function () {
+        Route::get('index', [App\Http\Controllers\Auth\RoleController::class,'index'])->name('index');
+        Route::get('create', [App\Http\Controllers\Auth\RoleController::class,'create'])->name('create');
+        Route::post('store', [App\Http\Controllers\Auth\RoleController::class,'store'])->name('store');
+        Route::get('edit/{role}', [App\Http\Controllers\Auth\RoleController::class,'edit'])->name('edit');
+        Route::put('update/{role}', [App\Http\Controllers\Auth\RoleController::class,'update'])->name('update');
+        Route::delete('destroy/{role}', [App\Http\Controllers\Auth\RoleController::class,'destroy'])->name('destroy');
+    });
+
+    //  user role permissions
+    Route::prefix('permissions/')->name('permissions.')->group(function () {
+        Route::get('index', [App\Http\Controllers\Auth\PermissionController::class,'index'])->name('index');
+        Route::get('create', [App\Http\Controllers\Auth\PermissionController::class,'create'])->name('create');
+        Route::post('store', [App\Http\Controllers\Auth\PermissionController::class,'store'])->name('store');
+        Route::get('edit/{permission}', [App\Http\Controllers\Auth\PermissionController::class,'edit'])->name('edit');
+        Route::put('update/{permission}', [App\Http\Controllers\Auth\PermissionController::class,'update'])->name('update');
+        Route::delete('destroy/{permission}', [App\Http\Controllers\Auth\PermissionController::class,'destroy'])->name('destroy');
+    });
 });
 
-//  user role permissions
-Route::prefix('permissions/')->name('permissions.')->group(function () {
-    Route::get('index', [App\Http\Controllers\Auth\PermissionController::class,'index'])->name('index');
-    Route::get('create', [App\Http\Controllers\Auth\PermissionController::class,'create'])->name('create');
-    Route::post('store', [App\Http\Controllers\Auth\PermissionController::class,'store'])->name('store');
-    Route::get('edit/{permission}', [App\Http\Controllers\Auth\PermissionController::class,'edit'])->name('edit');
-    Route::put('update/{permission}', [App\Http\Controllers\Auth\PermissionController::class,'update'])->name('update');
-    Route::delete('destroy/{permission}', [App\Http\Controllers\Auth\PermissionController::class,'destroy'])->name('destroy');
-});
 
 //  Location
 Route::prefix('locations/')->name('locations.')->group(function () {
@@ -52,8 +104,7 @@ Route::prefix('locations/')->name('locations.')->group(function () {
 });
 
 
-
-//  Government Structures
+//  Organization Structures
 Route::prefix('structure/')->group(function () {
 
     //  Types
